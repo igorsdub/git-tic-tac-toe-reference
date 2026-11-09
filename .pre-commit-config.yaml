@@ -1,0 +1,10 @@
+# Same check as the workshop guide: Git runs `uv run pytest` before a commit.
+repos:
+  - repo: local
+    hooks:
+      - id: pytest
+        name: uv run pytest
+        entry: uv run pytest
+        language: system
+        pass_filenames: false
+        always_run: true
