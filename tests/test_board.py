@@ -12,7 +12,7 @@ from textwrap import dedent
 
 import pytest
 
-BOARD_PATH = Path(__file__).with_name("BOARD.txt")
+BOARD_PATH = Path(__file__).resolve().parents[1] / "BOARD.txt"
 EMPTY = "."
 
 

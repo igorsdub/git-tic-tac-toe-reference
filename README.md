@@ -23,17 +23,19 @@ Someone else can run the same check because the project records what it needs an
 | Manifest | `pyproject.toml` | Says what the project needs (Python 3.10 or newer, and pytest). |
 | Lock file | `uv.lock` | Records the exact versions. |
 | Runner | `uv` | Builds the environment and runs the command. |
-| Test module | `pytest` | Runs `test_board.py`. |
+| Test module | `pytest` | Runs `tests/test_board.py`. |
 
 Julia records the same idea in `Project.toml` and `Manifest.toml`. R records it with `renv`.
 
 ## What each file is for
 
+This README is for people.
+
 - `BOARD.txt` is the board under test, in the template layout.
-- `test_board.py` is one small test for each board rule, plus a test of this repository's board.
+- `tests/test_board.py` is one small test for each board rule, plus a test of this repository's board. Test files live in `tests/`, are named `test_<name>.py`, and each test function starts with `test_`.
 - `pyproject.toml` is the manifest. Pytest is a dev dependency, so `uv run pytest` can install and run it.
 - `uv.lock` is the lock file `uv` generated.
-- `AGENTS.md` is a short brief for a coding agent.
+- `AGENTS.md` is the short note for a coding agent.
 - `.pre-commit-config.yaml` is an optional hook with the same check as the guide. After `uvx pre-commit install`, Git runs `uv run pytest` before each commit.
 - `.gitignore` keeps `.venv/`, `__pycache__/`, and `.pytest_cache/` out of Git.
 
